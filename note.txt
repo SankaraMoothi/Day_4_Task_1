@@ -1,0 +1,43 @@
+
+1.how to compare two JSON have the same properties without order?
+a.var obj1={name:"person 1",age:5};
+b.var obj2={age:5,name="person 1"};
+-------------------------------------------------------------------------------------------
+*Actually we compare two different array or object with the help of a Equality operator "==",
+*If we just type like obj1==obj2; its shows an false, 
+*Because its order is different in this case, 
+*so want to write an simple code and also in effecent way let try.....
+--------------------------------------------------------------------------------------------
+we can solve it simply with an sample program;
+--------------------------------------
+var obj1 = {"name":"person 1","age":"5"};
+var obj2 = {"age":"5","name":"person 1"};
+
+var flag=true;
+
+//first we want check that the both object has same length ;
+
+if(Object.keys(obj1).length==Object.keys(obj2).length){
+
+//here we using for in looping 🔃 menthod to check both object key are match or not
+
+    for(key in obj1) { 
+//here we using condition operater to check that the key really match in two object; 
+        if(obj1[key] == obj2[key]) {
+            continue;
+        }
+        else {
+            flag=false;
+            break;
+        }
+    }
+}
+else {
+    flag=false;
+}
+console.log("is object equal"+flag);
+----------------------------------------------------------------------------------------------
+// it is most simple and basic way to find 
+// there are many method are there to find it like
+//    .isEqual();
+// its also online code .....but in above code we can learn the  logic 
